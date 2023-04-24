@@ -24,8 +24,8 @@ public class GraphProcessor {
      */
     //instance variables
     private static HashMap<Point, Set<Point>> aList = new HashMap<>(); 
-    public static Map<Point, Integer> pointLabels = new HashMap<>();
-    
+    private static Map<Point, Integer> pointLabels = new HashMap<>();
+
     public void initialize(FileInputStream file) throws Exception {
         // TODO: Implement initialize
         try{
@@ -76,7 +76,7 @@ public class GraphProcessor {
                 toExplore.add(p);
                 while(!toExplore.isEmpty()) {
                     Point current = toExplore.remove();
-                    pointLabels.put(p, count);
+                    pointLabels.put(current, count);
                     for(Point neighborPoint:aList.get(current)) {
                         if (!visited.contains(neighborPoint)) {
                             visited.add(neighborPoint);
@@ -87,6 +87,7 @@ public class GraphProcessor {
                 count = count + 1;
             }
         }
+
     }
 
 
